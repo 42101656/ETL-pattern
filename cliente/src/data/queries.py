@@ -236,19 +236,11 @@ class Queries:
     def get_most_selled_products_by_period(start_date,end_date):
         query='''
             {
-                var(func: has(invoice)) @filter(ge(date, "'''+start_date+'''") AND le(date, "'''+end_date+'''")) {
-                    product as ~bought
-                }
-
-                var(func: uid(product)) {
-                    purchasedProduct as uid
-                }
-
                 var(func: has(description)) {
-                    c as count(bought) 
+                    c as count(bought) @filter(ge(date, "'''+start_date+'''") AND le(date, "'''+end_date+'''"))
                 }
-                
-                response(func: uid(purchasedProduct), orderdesc: val(c)) @cascade {
+                    
+                response(func: has(description), orderdesc: val(c)){
                     description
                     times: val(c)
                 }

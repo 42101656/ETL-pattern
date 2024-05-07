@@ -96,8 +96,8 @@ def update_products_from_date_range(start_date, end_date):
 
 @app.callback(
     Output('most_selled', 'children'),
-    Input('start-date', 'start_date'),
-    Input('start-date', 'end_date')
+    Input('start-date-3', 'start_date'),
+    Input('start-date-3', 'end_date')
 )
 def update_most_selled_products_from_date_range(start_date, end_date):
     if start_date is None or end_date is None:
