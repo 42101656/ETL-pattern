@@ -456,9 +456,9 @@ class Dashboard:
                             [
                                 dbc.Label("Start Date"),
                                 dcc.DatePickerRange(
-                                    id='start-date2',
-                                    start_date='2024-02-06',
-                                    end_date='2024-02-08',
+                                    id='start-date-3',
+                                    start_date='2024-04-01',
+                                    end_date=datetime.now().strftime('%Y-%m-%d'),
                                     display_format='YYYY-MM-DD'
                                 ),
                             ]
