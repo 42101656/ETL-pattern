@@ -159,25 +159,16 @@ class Queries:
     def get_sales_per_location_by_period(start_date, end_date):
         query = '''
             {
-                var(func: has(invoice)) @filter(ge(date, "'''+start_date+'''") AND le(date, "'''+end_date+'''")) {
-                    ~bought {
-                        sold: ~sold {
-                            price
-                            quantity: count(bought)
-                        }
-                    }
-                }
-                
                 response(func: has(name)){
-                    name
-                    providers: ~belongs {
-                        sold: ~sold {
-                            price
-                            quantity: count(bought)
-                        }
+                name
+                providers: ~belongs {
+                    sold: ~sold {
+                    price
+                    quantity: count(bought) @filter(ge(date, "'''+start_date+'''") AND le(date, "'''+end_date+'''"))
                     }
                 }
             }
+        }
         '''
         return query
 

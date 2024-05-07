@@ -295,19 +295,6 @@ class Dashboard:
                         ##date_picker,
                     ]
                 ),
-                dbc.Row(
-                    [
-                        dbc.Col(
-                            self._card_value("Sucursales", locations["locations"], "Sucursales-value")
-                        ),
-                        dbc.Col(
-                            self._card_value("Ventas", "$ {:,.2f}".format(float(sales['sales'])), "Ventas-value")
-                        ),
-                        dbc.Col(
-                            self._card_value("total-sales", " {:,.2f}".format(sum(sales_locations['sales'])), "total-sales-value")
-                        ),
-                    ]
-                ),
 
             ]
         )
